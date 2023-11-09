@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<form action="/product/add" method="post">
+    <span>Name:</span>
+    <span><input type="text" name="name"/></span>
+    <span><button type="submit">Add</button></span>
+
+    <!-- 숨겨진 입력으로 CSRF 토큰을 요청에 추가 -->
+    <input type="hidden"
+           th:name="${_csrf.parameterName}"
+           th:value="${_csrf.token}"/>
+</form>
+</body>
+</html>
